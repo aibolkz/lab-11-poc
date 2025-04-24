@@ -1,0 +1,9 @@
+device_type,host,username,password,router_name
+cisco_ios,198.51.100.10,team,team,R1
+cisco_ios,198.51.100.20,team,team,R2
+cisco_ios,198.51.100.30,team,team,R3
+cisco_ios,198.51.100.40,team,team,R4
+cisco_ios,198.51.100.50,team,team,R5
+cisco_ios,198.51.100.60,team,team,R6
+cisco_ios,198.51.100.70,team,team,R7
+cisco_ios,198.51.100.80,team,team,R8

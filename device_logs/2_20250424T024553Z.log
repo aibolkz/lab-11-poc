@@ -1,0 +1,57 @@
+Syslog logging: enabled (0 messages dropped, 2 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level debugging, 27 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 0 messages logged, xml disabled,
+                     filtering disabled
+    Buffer logging:  level debugging, 27 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (8192 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+    Trap logging: level informational, 30 message lines logged
+        Logging Source-Interface:       VRF Name:
+
+Log Buffer (8192 bytes):
+
+*Apr 24 00:01:25.063: %IFMGR-7-NO_IFINDEX_FILE: Unable to open nvram:/ifIndex-table No such file or directory
+*Apr 24 00:01:35.723: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*Apr 24 00:01:35.731: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+*Apr 24 00:01:35.739: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up
+*Apr 24 00:01:35.747: %LINK-3-UPDOWN: Interface FastEthernet1/1, changed state to up
+*Apr 24 00:01:35.755: %LINK-3-UPDOWN: Interface GigabitEthernet2/0, changed state to up
+*Apr 24 00:01:37.239 UTC: %SYS-5-CONFIG_I: Configured from memory by console
+*Apr 24 00:01:37.427 UTC: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+*Apr 24 00:01:37.431 UTC: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+*Apr 24 00:01:37.435 UTC: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/1, changed state to up
+*Apr 24 00:01:37.435 UTC: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet2/0, changed state to up
+*Apr 24 00:01:37.439 UTC: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback1, changed state to up
+*Apr 24 00:01:37.779 UTC: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, 7200 Software (C7200-ADVENTERPRISEK9-M), Version 15.2(4)M7, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2014 by Cisco Systems, Inc.
+Compiled Thu 25-Sep-14 10:36 by prod_rel_team
+*Apr 24 00:01:37.887 UTC: %SNMP-5-COLDSTART: SNMP agent on host R2 is undergoing a cold start
+*Apr 24 00:01:38.031 UTC: %SSH-5-ENABLED: SSH 2.0 has been enabled
+*Apr 24 00:01:38.087 UTC: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Apr 24 00:01:38.087 UTC: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Apr 24 00:01:45.351 UTC: %BGP-5-ADJCHANGE: neighbor 5.5.5.5 Up 
+*Apr 24 00:01:47.243 UTC: %BGP-5-ADJCHANGE: neighbor 4.4.4.4 Up 
+*Apr 24 00:01:49.387 UTC: %BGP-5-ADJCHANGE: neighbor 6.6.6.6 Up 
+*Apr 24 00:36:52.811 UTC: %SYS-5-CONFIG_I: Configured from console by team on vty0 (198.51.100.2)
+*Apr 24 00:37:41.247 UTC: %SYS-5-CONFIG_I: Configured from console by team on vty0 (198.51.100.2)
+*Apr 24 01:31:10.887 UTC: %SYS-5-CONFIG_I: Configured from console by team on vty0 (198.51.100.2)
+*Apr 24 01:36:00.179 UTC: %SYS-5-CONFIG_I: Configured from console by team on vty0 (198.51.100.2)
+*Apr 24 01:59:43.223 UTC: %SYS-5-CONFIG_I: Configured from console by team on vty0 (198.51.100.2)
+*Apr 24 02:00:51.611 UTC: %SYS-5-CONFIG_I: Configured from console by team on vty0 (198.51.100.2)
+*Apr 24 02:12:36.323 UTC: %SYS-5-CONFIG_I: Configured from console by team on vty0 (198.51.100.2)
