@@ -72,6 +72,7 @@ All monitoring scripts will now pick up the new router from the routers table au
 
 ### 4. Environment Variable File
 Put a single .env file in the project root directory:
+All scripts use the same loader to read .env.
 
 ```# Database settings
 DB_HOST=localhost
@@ -90,5 +91,4 @@ MINIO_ARCHIVE_BUCKET=everyday-archives
 TELEGRAM_TOKEN=your_bot_token_here
 TELEGRAM_CHAT_ID=your_chat_id_here ```
 
-## All scripts use the same loader to read .env.
 
