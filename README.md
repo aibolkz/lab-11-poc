@@ -47,7 +47,9 @@ The system is divided into 2 phases:
 ### 2. Scripts and  Roles
 
 **snmp_configuration.py**	Once	routers.csv	Sets snmp-server community lab11 RO on each device
+
 **configure_traps.py**	Once	routers.csv	Enables snmp-server enable traps bgp peerDown and snmp-server enable traps snmp linkDown
+
 **import_routers_db.py**	Once	routers.csv	Fills DB table routers(id, router_name, ip)
 
 **ping_monitor.py**	Every 5 minutes (cron)	routers table	Pings devices, keeps state file, sends Telegram on down/up change
@@ -86,7 +88,7 @@ MINIO_ARCHIVE_BUCKET=everyday-archives
 
 # Telegram bot settings
 TELEGRAM_TOKEN=your_bot_token_here
-TELEGRAM_CHAT_ID=your_chat_id_here```
+TELEGRAM_CHAT_ID=your_chat_id_here ```
 
-All scripts use the same loader to read .env.
+## All scripts use the same loader to read .env.
 
