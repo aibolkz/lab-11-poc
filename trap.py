@@ -20,8 +20,8 @@ env=load_env(env_file)
 TOKEN=env["TELEGRAM_TOKEN"]
 CHAT_ID=env["TELEGRAM_CHAT_ID"]
 
-TOKEN   = "7739671202:AAHo32x11NjNvm0rtURGMhoYHwtUZrWg7qw"
-CHAT_ID = "771415687"
+TOKEN   = "7739671202:"
+CHAT_ID = ""
 URL     = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
 def send(text):
