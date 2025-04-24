@@ -6,10 +6,9 @@ The system is divided into 2 phases:
 
 1. **Initial configuration** (execute once) 
  
-   * Set up community for SNMP and traps
-   * Grab routers from the CSV file and populate the Database
-   * The above scripts do not run with every check
-
+   * Set up the community for SNMP and traps
+   * Download routers info from the CSV file and populate the Database
+   
 2. **Continuous Monitoring** (execute at intervals)
 
    * All mentioned scripts access devices from the `routers` table (`id, router_name, ip`) 
@@ -49,7 +48,7 @@ The system is divided into 2 phases:
 Before you run any scripts, install and configure the following software:
 
 1. **Operating System**  
-   - Ubuntu 22.04 LTS (or any Debian-based Linux)
+   - Ubuntu 22.04 LTS or any Debian based LinuxOS
 
 2. **Python 3**  
    - Version 3.8+ (we use 3.10 in lab)  
@@ -138,8 +137,10 @@ MINIO_SECRET_KEY=minioadmin
 MINIO_BUCKET=device-logs
 MINIO_ARCHIVE_BUCKET=everyday-archives
 
+
 # Telegram bot settings
 TELEGRAM_TOKEN=your_bot_token_here
-TELEGRAM_CHAT_ID=your_chat_id_here ```
+TELEGRAM_CHAT_ID=your_chat_id_here 
+```
 
 
