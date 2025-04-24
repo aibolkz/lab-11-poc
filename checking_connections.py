@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-import csv  #importcsvmodule
-import subprocess  #importsubprocessforping
-from datetime import datetime  #importdatetime
+import csv  #
+import subprocess  #
+from datetime import datetime  #
 
-csv_file = "routers.csv"  #setcsvfilename
+csv_file = "routers.csv"  
+
+
 
 def ping_host(ip):
     try:
@@ -12,9 +14,12 @@ def ping_host(ip):
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
         )
+        
         return ret == 0  #returntrueifup
     except:
-        return False  #returnfalseonerror
+        return False  
+        
+
 
 def main():
     with open(csv_file, newline="") as f:
@@ -25,6 +30,9 @@ def main():
             up = ping_host(ip)  #checkuptime
             status = "up" if up else "down"
             print(f"{datetime.now()} {name} {ip} is {status}")  #printstatus
+
+
+
 
 if __name__ == "__main__":
     main()  
