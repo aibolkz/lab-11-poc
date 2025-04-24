@@ -15,6 +15,7 @@ def load_env(path):
             data[key] = val
     return data
 
+
 env = load_env(ENV_FILE)
 DB_CONFIG = {
     'host':     env['DB_HOST'],
@@ -23,10 +24,13 @@ DB_CONFIG = {
     'database': env['DB_NAME'],
 }
 
+
+
+#main
 def main():
     conn = mysql.connector.connect(**DB_CONFIG)
     cur  = conn.cursor()
-    # вместо TRUNCATE используем DELETE
+    # instead TRUNCATE use DELETE
     cur.execute("DELETE FROM routers")
     conn.commit()
 
