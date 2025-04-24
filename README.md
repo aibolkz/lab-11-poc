@@ -56,7 +56,7 @@ Before you run any scripts, install and configure the following software:
    - Install via your package manager:
      ```bash
      sudo apt update
-     sudo apt install python3 python3-venv python3-pip
+     sudo apt install python3 python3-pip
      ```
 
 3. **MySQL Server**  
@@ -74,8 +74,7 @@ Before you run any scripts, install and configure the following software:
      ```bash
      wget https://dl.min.io/server/minio/release/linux-amd64/minio
      chmod +x minio
-     export MINIO_ROOT_USER=username
-     export MINIO_ROOT_PASSWORD=password
+     TO RUN MINIO:
      ./minio server /mnt/data/minio --console-address ":9001"
      ```
      Two directories have to exist on root directory:
