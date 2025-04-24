@@ -108,7 +108,8 @@ everyday-archives
 
 **check_logs.py**	Hourly (cron)	routers table & routers.csv	SSH show logging → local files → upload to MinIO device-logs/ → record in DB
 
-**daily_tasks.py**	Daily (cron)	routers table & routers.csv	1) Archive device_logs/ → MinIO /everyday-archives/ + Telegram notification
+**daily_tasks.py**	Daily (cron)	routers table & routers.csv	1) Archive device_logs/ → MinIO /everyday-archives/ 
++ Telegram notification
 2) SSH show running-config diff with last → save new config + Telegram on change
 
 
