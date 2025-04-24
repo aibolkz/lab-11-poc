@@ -23,7 +23,7 @@ def load_env(path):
             d[k] = v
     return d
 
-# загружаем настройки
+#load env files 
 db_env    = load_env(ENV_DB)
 minio_env = load_env(ENV_MINIO)
 
@@ -45,7 +45,8 @@ bucket = minio_env['MINIO_BUCKET']
 os.makedirs(LOG_DIR, exist_ok=True)
 
 def main():
-    # читаем креды из CSV по имени роутера
+    # read from CSV credentials
+    #
     creds = {}
     with open(CSV_FILE, newline="") as f:
         r = csv.DictReader(f)
@@ -55,12 +56,12 @@ def main():
                 "device_type": row["device_type"].strip(),
                 "username":    row["username"].strip(),
                 "password":    row["password"].strip(),
-                "host_csv":    row["host"].strip(),  # на случай, если CSV и БД разнятся
+                "host_csv":    row["host"].strip(),  
             }
 
     db  = mysql.connector.connect(**DB_CONFIG)
     cur = db.cursor()
-    # создаём таблицу логов загрузок, если нет
+    # check if table is exist or not
     cur.execute("""
     CREATE TABLE IF NOT EXISTS logs_upload (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -72,20 +73,20 @@ def main():
     """)
     db.commit()
 
-    # Берём из БД только id, router_name и ip
+    # getting from DB only id, router_name and ip
     cur.execute("SELECT id, router_name, ip FROM routers")
     for router_id, router_name, ip_db in cur.fetchall():
         info = creds.get(router_name)
         if not info:
-            # нет записи в CSV — пропускаем
+            #if there is not csv record, skip
             continue
 
-        host = info["host_csv"]  # или используем ip_db
+        host = info["host_csv"]  
         dev_type = info["device_type"]
         user     = info["username"]
         pwd      = info["password"]
 
-        # достаём логи через SSH
+        # getting logs from ssh connection
         try:
             conn = ConnectHandler(
                 device_type=dev_type,
@@ -99,14 +100,14 @@ def main():
         except Exception as e:
             output = f"ERROR fetching logs: {e}"
 
-        # сохраняем локально
+        # save locally
         ts    = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
         fname = f"{router_id}_{ts}.log"
         fpath = os.path.join(LOG_DIR, fname)
         with open(fpath, "w") as f:
             f.write(output)
 
-        # загружаем в MinIO
+        #upload to MINIO
         date_pref   = datetime.datetime.utcnow().strftime("%Y-%m-%d")
         object_name = f"{date_pref}/{fname}"
         try:
@@ -115,7 +116,7 @@ def main():
         except S3Error:
             success = False
 
-        # записываем результат в БД
+        #record results into DB
         cur.execute(
             "INSERT INTO logs_upload (router_id,object_name,success) VALUES (%s,%s,%s)",
             (router_id, object_name, success)
