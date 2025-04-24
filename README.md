@@ -44,6 +44,58 @@ The system is divided into 2 phases:
    └─ daily_tasks.py           ## archive logs → MinIO + config-diff → MinIO + Telegram (have to add into the cron)
 ```
 
+## Prerequisites and Tools
+
+Before you run any scripts, install and configure the following software:
+
+1. **Operating System**  
+   - Ubuntu 22.04 LTS (or any Debian-based Linux)
+
+2. **Python 3**  
+   - Version 3.8+ (we use 3.10 in lab)  
+   - Install via your package manager:
+     ```bash
+     sudo apt update
+     sudo apt install python3 python3-venv python3-pip
+     ```
+
+3. **MySQL Server**  
+   - Version 8.0+  
+   - Install and start:
+     ```bash
+     sudo apt install mysql-server
+     sudo systemctl enable --now mysql
+     ```
+   - Create database/user as shown in docs.
+
+4. **MinIO Server**  
+   - S3-compatible object storage  
+   - Download and run:
+     ```bash
+     wget https://dl.min.io/server/minio/release/linux-amd64/minio
+     chmod +x minio
+     export MINIO_ROOT_USER=username
+     export MINIO_ROOT_PASSWORD=password
+     ./minio server /mnt/data/minio --console-address ":9001"
+     ```
+     Two directories have to exist on root directory:
+```     
+device-logs 
+everyday-archives
+```
+5. **Python Libraries**  
+   In your project folder, create a virtualenv and install:
+   ```bash
+   pip install --upgrade pip
+   pip install \
+     netmiko \
+     mysql-connector-python \
+     minio \
+     requests \
+     
+
+
+
 ### 2. Scripts and  Roles
 
 **snmp_configuration.py**	Once	routers.csv	Sets snmp-server community lab11 RO on each device
