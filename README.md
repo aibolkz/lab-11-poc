@@ -49,11 +49,16 @@ The system is divided into 2 phases:
 **snmp_configuration.py**	Once	routers.csv	Sets snmp-server community lab11 RO on each device
 **configure_traps.py**	Once	routers.csv	Enables snmp-server enable traps bgp peerDown and snmp-server enable traps snmp linkDown
 **import_routers_db.py**	Once	routers.csv	Fills DB table routers(id, router_name, ip)
+
 **ping_monitor.py**	Every 5 minutes (cron)	routers table	Pings devices, keeps state file, sends Telegram on down/up change
+
 **bgp_status.py**	On demand or cron	routers.csv & routers table	SNMP-walk of BGP peerState → console output or later DB insert
+
 **check_logs.py**	Hourly (cron)	routers table & routers.csv	SSH show logging → local files → upload to MinIO device-logs/ → record in DB
+
 **daily_tasks.py**	Daily (cron)	routers table & routers.csv	1) Archive device_logs/ → MinIO /everyday-archives/ + Telegram notification
 2) SSH show running-config diff with last → save new config + Telegram on change
+
 
 ### 3. Adding a New Device
 Add a line in routers.csv with fields:
@@ -82,5 +87,6 @@ MINIO_ARCHIVE_BUCKET=everyday-archives
 # Telegram bot settings
 TELEGRAM_TOKEN=your_bot_token_here
 TELEGRAM_CHAT_ID=your_chat_id_here```
+
 All scripts use the same loader to read .env.
 
